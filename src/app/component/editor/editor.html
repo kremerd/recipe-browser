@@ -1,9 +1,4 @@
-<form [formGroup]="recipeForm">
-  <div>
-    <label for="id">ID</label>
-    <input id="id" formControlName="id" />
-  </div>
-
+<form [formGroup]="recipeForm" (submit)="saveRecipe()">
   <div>
     <label for="title">Titel</label>
     <input id="title" formControlName="title" />
@@ -50,4 +45,7 @@
     }
     <button type="button" (click)="addIngredient()">Zutat hinzufügen</button>
   </fieldset>
+
+  <button type="button" routerLink="..">Abbrechen</button>
+  <button type="submit">Speichern</button>
 </form>

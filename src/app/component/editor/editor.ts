@@ -5,17 +5,20 @@ import {
   FormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { Recipe } from '../../service';
+import { ActivatedRoute, Router, RouterLinkWithHref } from '@angular/router';
+import { Recipe, RecipeRegistry } from '../../service';
 
 @Component({
   selector: 'rec-editor',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLinkWithHref],
   templateUrl: './editor.html',
   styleUrl: './editor.scss',
 })
 export class EditorComponent {
-  readonly recipeForm!: FormGroup<{
+  private readonly router = inject(Router);
+  private readonly recipeRegistry = inject(RecipeRegistry);
+
+  readonly recipeForm: FormGroup<{
     id: FormControl<string>;
     title: FormControl<string>;
     description: FormControl<string>;
@@ -74,5 +77,10 @@ export class EditorComponent {
   removeIngredient(index: number): void {
     console.log('removing at', index);
     this.recipeForm.controls.ingredients.removeAt(index);
+  }
+
+  saveRecipe(): void {
+    this.recipeRegistry.saveRecipe(this.recipeForm.getRawValue());
+    this.router.navigate([`/recipe/${this.recipeForm.controls.id.value}`]);
   }
 }
