@@ -1,1 +1,53 @@
-<p>editor works!</p>
+<form [formGroup]="recipeForm">
+  <div>
+    <label for="id">ID</label>
+    <input id="id" formControlName="id" />
+  </div>
+
+  <div>
+    <label for="title">Titel</label>
+    <input id="title" formControlName="title" />
+  </div>
+
+  <div>
+    <label for="description">Beschreibung</label>
+    <textarea id="description" formControlName="description"></textarea>
+  </div>
+
+  <fieldset formArrayName="tags">
+    <legend>Tags</legend>
+    @for (tag of recipeForm.controls.tags.controls; track tag) {
+    <div>
+      <label for="tag-{{$index}}">Tag</label>
+      <input id="tag-{{$index}}" [formControlName]="$index" />
+      <button type="button" (click)="removeTag($index)">Tag entfernen</button>
+    </div>
+    }
+    <button type="button" (click)="addTag()">Tag hinzufügen</button>
+  </fieldset>
+
+  <fieldset formGroupName="ingredients">
+    <legend>Zutaten</legend>
+    @for (ingredient of recipeForm.controls.ingredients.controls; track
+    ingredient) {
+    <div [formArrayName]="$index">
+      <div>
+        <label for="ingredient-{{$index}}-amount">Anzahl</label>
+        <input id="ingredient-{{$index}}-amount" formControlName="amount" />
+      </div>
+      <div>
+        <label for="ingredient-{{$index}}-unit">Einheit</label>
+        <input id="ingredient-{{$index}}-unit" formControlName="unit" />
+      </div>
+      <div>
+        <label for="ingredient-{{$index}}-name">Zutat</label>
+        <input id="ingredient-{{$index}}-name" formControlName="name" />
+      </div>
+      <button type="button" (click)="removeIngredient($index)">
+        Zutat entfernen
+      </button>
+    </div>
+    }
+    <button type="button" (click)="addIngredient()">Zutat hinzufügen</button>
+  </fieldset>
+</form>

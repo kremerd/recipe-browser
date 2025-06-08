@@ -9,7 +9,7 @@ import { RecipeRegistry } from '../../service';
   templateUrl: './search.html',
   styleUrl: './search.scss',
 })
-export class Search {
+export class SearchComponent {
   private readonly recipeRegistry = inject(RecipeRegistry);
 
   readonly search = signal<string>('');

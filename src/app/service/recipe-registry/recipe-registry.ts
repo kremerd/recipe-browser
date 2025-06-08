@@ -1,4 +1,4 @@
-import { computed, Injectable, signal, Signal } from '@angular/core';
+import { computed, Injectable, isSignal, signal, Signal } from '@angular/core';
 import type { Recipe } from '../model';
 
 @Injectable({
@@ -52,9 +52,27 @@ export class RecipeRegistry {
     );
   }
 
+  public getEmptyRecipe(): Recipe {
+    return {
+      id: '',
+      tags: [],
+      title: '',
+      description: '',
+      ingredients: [],
+    };
+  }
+
+  public getRecipe(id: string | null | undefined): Recipe | undefined;
   public getRecipe(
     id: Signal<string | null | undefined>,
-  ): Signal<Recipe | undefined> {
-    return computed(() => this.recipes().find((r) => r.id === id()));
+  ): Signal<Recipe | undefined>;
+  public getRecipe(
+    id: Signal<string | null | undefined> | string | null | undefined,
+  ): Recipe | undefined | Signal<Recipe | undefined> {
+    if (isSignal(id)) {
+      return computed(() => this.recipes().find((r) => r.id === id()));
+    } else {
+      return this.recipes().find((r) => r.id === id);
+    }
   }
 }

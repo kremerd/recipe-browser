@@ -1,3 +1,3 @@
-export { Editor } from './editor/editor';
-export { Recipe } from './recipe/recipe';
-export { Search } from './search/search';
+export { EditorComponent } from './editor/editor';
+export { RecipeComponent } from './recipe/recipe';
+export { SearchComponent } from './search/search';

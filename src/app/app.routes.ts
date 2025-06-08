@@ -1,21 +1,30 @@
-import { Routes } from '@angular/router';
-import { Editor, Recipe, Search } from './component';
+import { inject } from '@angular/core';
+import { ActivatedRouteSnapshot, Routes } from '@angular/router';
+import { EditorComponent, RecipeComponent, SearchComponent } from './component';
+import { Recipe, RecipeRegistry } from './service';
 
 export const routes: Routes = [
   {
     path: '',
-    component: Search,
+    component: SearchComponent,
   },
   {
     path: 'new',
-    component: Editor,
+    component: EditorComponent,
+    resolve: {
+      recipe: (): Recipe | undefined => inject(RecipeRegistry).getEmptyRecipe(),
+    },
   },
   {
     path: 'recipe/:id',
-    component: Recipe,
+    component: RecipeComponent,
   },
   {
     path: 'recipe/:id/edit',
-    component: Editor,
+    component: EditorComponent,
+    resolve: {
+      recipe: (route: ActivatedRouteSnapshot): Recipe | undefined =>
+        inject(RecipeRegistry).getRecipe(route.paramMap.get('id')),
+    },
   },
 ];
