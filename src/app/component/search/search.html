@@ -1,1 +1,11 @@
-<p>search works!</p>
+<div>
+  <label for="search">Suche: </label>
+  <input id="search" [(ngModel)]="search" />
+</div>
+<ul>
+  @for (recipe of recipes(); track recipe.id) {
+  <li>
+    <a [routerLink]="`/recipe/${recipe.id}`">{{ recipe.title }}</a>
+  </li>
+  }
+</ul>

@@ -1,1 +1,15 @@
-<p>recipe works!</p>
+@let rec= recipe(); @if (rec) {
+
+<h2>{{ rec.title }}</h2>
+<p>{{ rec.description }}</p>
+<h3>Zutaten</h3>
+<ul>
+  @for (ing of rec.ingredients; track ing.name) {
+  <li>{{ ing.amount }} {{ ing.unit }} {{ ing.name }}</li>
+  }
+</ul>
+
+} @else {
+<h2>Unbekanntes Rezept</h2>
+<p>Es ist leider Rezept unter dieser URL verfügbar.</p>
+}
