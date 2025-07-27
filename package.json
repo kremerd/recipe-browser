@@ -1,6 +1,12 @@
 {
   "name": "recipe-browser",
-  "version": "0.0.0",
+  "description": "a serverless cookbook application",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kremerd/recipe-browser.git"
+  },
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
