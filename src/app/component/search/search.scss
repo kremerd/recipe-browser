@@ -1,0 +1,9 @@
+mat-form-field {
+  display: block;
+}
+
+.recipes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(348px, 1fr));
+  gap: 8px;
+}

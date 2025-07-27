@@ -1,0 +1,22 @@
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+legend {
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+mat-form-field {
+  display: block;
+}
+
+.button-container {
+  margin: 0 0 20px 0;
+
+  & :not(:last-child) {
+    margin-right: 8px;
+  }
+}

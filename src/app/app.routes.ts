@@ -13,6 +13,7 @@ export const routes: Routes = [
     component: EditorComponent,
     resolve: {
       recipe: (): Recipe | undefined => inject(RecipeRegistry).getEmptyRecipe(),
+      title: () => 'Neues Rezept',
     },
   },
   {
@@ -25,6 +26,7 @@ export const routes: Routes = [
     resolve: {
       recipe: (route: ActivatedRouteSnapshot): Recipe | undefined =>
         inject(RecipeRegistry).getRecipe(route.paramMap.get('id')),
+      title: () => 'Rezept bearbeiten',
     },
   },
 ];

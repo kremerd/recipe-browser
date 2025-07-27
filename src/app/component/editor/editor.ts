@@ -5,12 +5,21 @@ import {
   FormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { ActivatedRoute, Router, RouterLinkWithHref } from '@angular/router';
 import { Recipe, RecipeRegistry } from '../../service';
 
 @Component({
   selector: 'rec-editor',
-  imports: [ReactiveFormsModule, RouterLinkWithHref],
+  imports: [
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    RouterLinkWithHref,
+  ],
   templateUrl: './editor.html',
   styleUrl: './editor.scss',
 })
@@ -18,6 +27,7 @@ export class EditorComponent {
   private readonly router = inject(Router);
   private readonly recipeRegistry = inject(RecipeRegistry);
 
+  readonly title: string = inject(ActivatedRoute).snapshot.data['title'];
   readonly recipeForm: FormGroup<{
     id: FormControl<string>;
     title: FormControl<string>;

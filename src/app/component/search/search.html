@@ -1,12 +1,19 @@
-<div>
-  <label for="search">Suche: </label>
-  <input id="search" [(ngModel)]="search" />
-</div>
-<ul>
+<h2>Suche</h2>
+<mat-form-field>
+  <mat-label>Stichwörter</mat-label>
+  <input matInput type="text" [(ngModel)]="search" />
+</mat-form-field>
+
+<div class="recipes-container">
   @for (recipe of recipes(); track recipe.id) {
-  <li>
-    <a [routerLink]="`/recipe/${recipe.id}`">{{ recipe.title }}</a>
-  </li>
+  <mat-card appearance="filled">
+    <mat-card-header>
+      <mat-card-title>{{ recipe.title }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>{{ recipe.description }}</mat-card-content>
+    <mat-card-actions>
+      <a matButton [routerLink]="`/recipe/${recipe.id}`">Öffnen</a>
+    </mat-card-actions>
+  </mat-card>
   }
-</ul>
-<a routerLink="new">Neues Rezept erstellen</a>
+</div>

@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { RouterLinkWithHref, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
+import { Header } from './component/header/header';
 
 @Component({
   selector: 'rec-root',
-  imports: [RouterOutlet, RouterLinkWithHref],
+  imports: [Header, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
