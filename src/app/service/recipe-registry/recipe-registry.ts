@@ -1,35 +1,12 @@
 import { computed, Injectable, isSignal, signal, Signal } from '@angular/core';
 import type { Recipe } from '../model';
+import { sampleRecipes } from './sample-recipes';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RecipeRegistry {
-  private readonly recipes = signal<Recipe[]>([
-    {
-      id: '7b698900-fd56-4277-b294-a6de92e5c288',
-      tags: ['Brot', 'Toast'],
-      title: 'Toastbrot',
-      description: 'Ein Rezept für Toastbrot',
-      ingredients: [
-        {
-          amount: 1,
-          unit: 'kg',
-          name: 'Mehl',
-        },
-        {
-          amount: 200,
-          unit: 'g',
-          name: 'Zucker',
-        },
-        {
-          amount: 1,
-          unit: 'Prise',
-          name: 'Salz',
-        },
-      ],
-    },
-  ]);
+  private readonly recipes = signal<Recipe[]>(sampleRecipes);
 
   getRecipes(search?: Signal<string>): Signal<Recipe[]> {
     if (!search) {
