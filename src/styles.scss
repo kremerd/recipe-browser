@@ -1,4 +1,6 @@
 @use "@angular/material" as mat;
+@import "@fontsource/roboto";
+@import "@material-design-icons/font";
 
 html {
   @include mat.theme(
@@ -7,7 +9,7 @@ html {
         primary: mat.$rose-palette,
         tertiary: mat.$red-palette,
       ),
-      typography: sans-serif,
+      typography: Roboto,
       density: 0,
     )
   );
@@ -25,5 +27,5 @@ body {
 
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
 }

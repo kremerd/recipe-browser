@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { ActivatedRoute, Router, RouterLinkWithHref } from '@angular/router';
 import { Recipe, RecipeRegistry } from '../../service';
@@ -17,6 +18,7 @@ import { Recipe, RecipeRegistry } from '../../service';
     ReactiveFormsModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatIconModule,
     MatInputModule,
     RouterLinkWithHref,
   ],

@@ -24,12 +24,15 @@
     </mat-form-field>
     <div class="button-container">
       <button matButton type="button" (click)="removeTag($index)">
+        <mat-icon fontIcon="delete"></mat-icon>
         Tag entfernen
       </button>
     </div>
     }
     <div class="button-container">
-      <button matButton type="button" (click)="addTag()">Tag hinzufügen</button>
+      <button matButton type="button" (click)="addTag()">
+        <mat-icon fontIcon="add"></mat-icon> Tag hinzufügen
+      </button>
     </div>
   </fieldset>
 
@@ -52,6 +55,7 @@
       </mat-form-field>
       <div class="button-container">
         <button matButton type="button" (click)="removeIngredient($index)">
+          <mat-icon fontIcon="delete"></mat-icon>
           Zutat entfernen
         </button>
       </div>
@@ -59,7 +63,7 @@
     }
     <div class="button-container">
       <button matButton type="button" (click)="addIngredient()">
-        Zutat hinzufügen
+        <mat-icon fontIcon="add"></mat-icon> Zutat hinzufügen
       </button>
     </div>
   </fieldset>
