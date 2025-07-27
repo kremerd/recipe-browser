@@ -76,7 +76,7 @@ export class RecipeRegistry {
     const recipes = this.recipes();
     const index = recipes.findIndex((r) => r.id === recipe.id);
     this.recipes.set([
-      ...recipes.slice(0, index),
+      ...recipes.slice(0, Math.max(index, 0)),
       recipe,
       ...recipes.slice(index + 1),
     ]);
