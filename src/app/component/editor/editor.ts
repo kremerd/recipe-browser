@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { ActivatedRoute, Router, RouterLinkWithHref } from '@angular/router';
 import { Recipe, RecipeRegistry } from '../../service';
+import { TagInput } from './tag-input/tag-input';
 
 @Component({
   selector: 'rec-editor',
@@ -21,6 +22,7 @@ import { Recipe, RecipeRegistry } from '../../service';
     MatIconModule,
     MatInputModule,
     RouterLinkWithHref,
+    TagInput,
   ],
   templateUrl: './editor.html',
   styleUrl: './editor.scss',
@@ -34,7 +36,7 @@ export class EditorComponent {
     id: FormControl<string>;
     title: FormControl<string>;
     description: FormControl<string>;
-    tags: FormArray<FormControl<string>>;
+    tags: FormControl<string[]>;
     ingredients: FormArray<
       FormGroup<{
         amount: FormControl<number>;
@@ -50,9 +52,7 @@ export class EditorComponent {
       id: new FormControl(recipe.id, { nonNullable: true }),
       title: new FormControl(recipe.title, { nonNullable: true }),
       description: new FormControl(recipe.description, { nonNullable: true }),
-      tags: new FormArray(
-        recipe.tags.map((tag) => new FormControl(tag, { nonNullable: true })),
-      ),
+      tags: new FormControl(recipe.tags, { nonNullable: true }),
       ingredients: new FormArray(
         recipe.ingredients.map(
           (ingredient) =>
@@ -64,16 +64,6 @@ export class EditorComponent {
         ),
       ),
     });
-  }
-
-  addTag(): void {
-    this.recipeForm.controls.tags.push(
-      new FormControl('', { nonNullable: true }),
-    );
-  }
-
-  removeTag(index: number): void {
-    this.recipeForm.controls.tags.removeAt(index);
   }
 
   addIngredient(): void {

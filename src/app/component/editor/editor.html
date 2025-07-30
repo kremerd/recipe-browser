@@ -5,6 +5,8 @@
     <input matInput type="text" formControlName="title" />
   </mat-form-field>
 
+  <rec-tag-input formControlName="tags"></rec-tag-input>
+
   <mat-form-field>
     <mat-label>Beschreibung</mat-label>
     <textarea
@@ -14,27 +16,6 @@
       formControlName="description"
     ></textarea>
   </mat-form-field>
-
-  <fieldset formArrayName="tags">
-    <legend>Tags</legend>
-    @for (tag of recipeForm.controls.tags.controls; track tag) {
-    <mat-form-field>
-      <mat-label>Tag</mat-label>
-      <input matInput type="text" [formControlName]="$index" />
-    </mat-form-field>
-    <div class="button-container">
-      <button matButton type="button" (click)="removeTag($index)">
-        <mat-icon fontIcon="delete"></mat-icon>
-        Tag entfernen
-      </button>
-    </div>
-    }
-    <div class="button-container">
-      <button matButton type="button" (click)="addTag()">
-        <mat-icon fontIcon="add"></mat-icon> Tag hinzufügen
-      </button>
-    </div>
-  </fieldset>
 
   <fieldset formGroupName="ingredients">
     <legend>Zutaten</legend>
