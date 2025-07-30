@@ -1,17 +1,18 @@
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TagInputComponent } from './tag-input';
 
-import { TagInput } from './tag-input';
-
-describe('TagInput', () => {
-  let component: TagInput;
-  let fixture: ComponentFixture<TagInput>;
+describe('TagInputComponent', () => {
+  let component: TagInputComponent;
+  let fixture: ComponentFixture<TagInputComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TagInput],
+      imports: [TagInputComponent],
+      providers: [provideZonelessChangeDetection()],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(TagInput);
+    fixture = TestBed.createComponent(TagInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,17 +1,27 @@
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute, provideRouter } from '@angular/router';
+import { sampleRecipes } from '../../service/recipe-registry/sample-recipes';
+import { EditorComponent } from './editor';
 
-import { Editor } from './editor';
-
-describe('Editor', () => {
-  let component: Editor;
-  let fixture: ComponentFixture<Editor>;
+describe('EditorComponent', () => {
+  let component: EditorComponent;
+  let fixture: ComponentFixture<EditorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Editor],
+      imports: [EditorComponent],
+      providers: [
+        provideZonelessChangeDetection(),
+        provideRouter([]),
+        {
+          provide: ActivatedRoute,
+          useValue: { snapshot: { data: { recipe: sampleRecipes[0] } } },
+        },
+      ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Editor);
+    fixture = TestBed.createComponent(EditorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

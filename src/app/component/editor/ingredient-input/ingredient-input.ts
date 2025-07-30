@@ -34,14 +34,14 @@ type OnTouchedCallback = () => void;
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: forwardRef(() => IngredientInput),
+      useExisting: forwardRef(() => IngredientInputComponent),
     },
   ],
   templateUrl: './ingredient-input.html',
   styleUrl: './ingredient-input.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class IngredientInput implements ControlValueAccessor {
+export class IngredientInputComponent implements ControlValueAccessor {
   private readonly element: ElementRef<HTMLElement> = inject(ElementRef);
 
   private onChangeCallback?: OnChangeCallback;

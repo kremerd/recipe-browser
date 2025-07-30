@@ -11,8 +11,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { ActivatedRoute, Router, RouterLinkWithHref } from '@angular/router';
 import { Ingredient, Recipe, RecipeRegistry } from '../../service';
-import { IngredientInput } from './ingredient-input/ingredient-input';
-import { TagInput } from './tag-input/tag-input';
+import { IngredientInputComponent } from './ingredient-input/ingredient-input';
+import { TagInputComponent } from './tag-input/tag-input';
 
 @Component({
   selector: 'rec-editor',
@@ -23,8 +23,8 @@ import { TagInput } from './tag-input/tag-input';
     MatIconModule,
     MatInputModule,
     RouterLinkWithHref,
-    IngredientInput,
-    TagInput,
+    IngredientInputComponent,
+    TagInputComponent,
   ],
   templateUrl: './editor.html',
   styleUrl: './editor.scss',

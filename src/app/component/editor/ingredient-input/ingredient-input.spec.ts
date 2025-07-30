@@ -1,17 +1,18 @@
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { IngredientInputComponent } from './ingredient-input';
 
-import { IngredientInput } from './ingredient-input';
-
-describe('IngredientInput', () => {
-  let component: IngredientInput;
-  let fixture: ComponentFixture<IngredientInput>;
+describe('IngredientInputComponent', () => {
+  let component: IngredientInputComponent;
+  let fixture: ComponentFixture<IngredientInputComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [IngredientInput],
+      imports: [IngredientInputComponent],
+      providers: [provideZonelessChangeDetection()],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(IngredientInput);
+    fixture = TestBed.createComponent(IngredientInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

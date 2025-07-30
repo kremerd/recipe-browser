@@ -30,13 +30,13 @@ type OnTouchedCallback = () => void;
     MatIconModule,
   ],
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: TagInput },
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: TagInputComponent },
   ],
   templateUrl: './tag-input.html',
   styleUrl: './tag-input.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TagInput implements ControlValueAccessor {
+export class TagInputComponent implements ControlValueAccessor {
   private readonly element: ElementRef<HTMLElement> = inject(ElementRef);
   private readonly announcer = inject(LiveAnnouncer);
 

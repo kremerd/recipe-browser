@@ -10,4 +10,4 @@ import { RouterLinkWithHref } from '@angular/router';
   styleUrl: './header.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Header {}
+export class HeaderComponent {}
