@@ -31,7 +31,6 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/recipe-browser/",
               "budgets": [
                 {
                   "type": "initial",
