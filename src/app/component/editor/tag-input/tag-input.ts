@@ -43,6 +43,8 @@ export class TagInputComponent implements ControlValueAccessor {
   private onChangeCallback?: OnChangeCallback;
   private onTouchedCallback?: OnTouchedCallback;
   readonly tags = signal<string[]>([]);
+  readonly ENTER = 13;
+  readonly SPACE = 32;
 
   writeValue(obj: string[]): void {
     this.tags.set(obj);

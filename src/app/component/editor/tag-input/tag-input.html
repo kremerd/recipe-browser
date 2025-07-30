@@ -11,8 +11,9 @@
       </mat-chip-row>
       }
       <input
-        placeholder="Neues Tag (bestätigen mit Enter)"
         [matChipInputFor]="chipGrid"
+        [matChipInputSeparatorKeyCodes]="[ENTER, SPACE]"
+        [matChipInputAddOnBlur]="true"
         (matChipInputTokenEnd)="addTag($event)"
       />
     </mat-chip-grid>
