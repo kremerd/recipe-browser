@@ -10,7 +10,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { ActivatedRoute, Router, RouterLinkWithHref } from '@angular/router';
-import { Recipe, RecipeRegistry } from '../../service';
+import { Ingredient, Recipe, RecipeRegistry } from '../../service';
+import { IngredientInput } from './ingredient-input/ingredient-input';
 import { TagInput } from './tag-input/tag-input';
 
 @Component({
@@ -22,6 +23,7 @@ import { TagInput } from './tag-input/tag-input';
     MatIconModule,
     MatInputModule,
     RouterLinkWithHref,
+    IngredientInput,
     TagInput,
   ],
   templateUrl: './editor.html',
@@ -38,13 +40,7 @@ export class EditorComponent {
     title: FormControl<string>;
     description: FormControl<string>;
     tags: FormControl<string[]>;
-    ingredients: FormArray<
-      FormGroup<{
-        amount: FormControl<number>;
-        unit: FormControl<string>;
-        name: FormControl<string>;
-      }>
-    >;
+    ingredients: FormArray<FormControl<Ingredient>>;
   }>;
 
   constructor() {
@@ -56,12 +52,7 @@ export class EditorComponent {
       tags: new FormControl(recipe.tags, { nonNullable: true }),
       ingredients: new FormArray(
         recipe.ingredients.map(
-          (ingredient) =>
-            new FormGroup({
-              amount: new FormControl(ingredient.amount, { nonNullable: true }),
-              unit: new FormControl(ingredient.unit, { nonNullable: true }),
-              name: new FormControl(ingredient.name, { nonNullable: true }),
-            }),
+          (ingredient) => new FormControl(ingredient, { nonNullable: true }),
         ),
       ),
     });
@@ -69,11 +60,14 @@ export class EditorComponent {
 
   addIngredient(): void {
     this.recipeForm.controls.ingredients.push(
-      new FormGroup({
-        amount: new FormControl(0, { nonNullable: true }),
-        unit: new FormControl('', { nonNullable: true }),
-        name: new FormControl('', { nonNullable: true }),
-      }),
+      new FormControl(
+        {
+          amount: 0,
+          unit: '',
+          name: '',
+        },
+        { nonNullable: true },
+      ),
     );
   }
 

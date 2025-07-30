@@ -21,25 +21,12 @@
     <legend>Zutaten</legend>
     @for (ingredient of recipeForm.controls.ingredients.controls; track
     ingredient) {
-    <div [formArrayName]="$index">
-      <mat-form-field>
-        <mat-label>Anzahl</mat-label>
-        <input matInput type="number" formControlName="amount" />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Einheit</mat-label>
-        <input matInput type="text" formControlName="unit" />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Zutat</mat-label>
-        <input matInput type="text" formControlName="name" />
-      </mat-form-field>
-      <div class="button-container">
-        <button matButton type="button" (click)="removeIngredient($index)">
-          <mat-icon fontIcon="delete"></mat-icon>
-          Zutat entfernen
-        </button>
-      </div>
+    <div>
+      <rec-ingredient-input [formControlName]="$index"></rec-ingredient-input>
+      <button matButton type="button" (click)="removeIngredient($index)">
+        <mat-icon fontIcon="delete"></mat-icon>
+        Zutat entfernen
+      </button>
     </div>
     }
     <div class="button-container">
