@@ -1,6 +1,6 @@
 @use "@angular/material" as mat;
-@import "@fontsource/roboto";
-@import "@material-design-icons/font";
+@use "@fontsource/roboto";
+@use "@material-design-icons/font";
 
 html {
   @include mat.theme(
