@@ -14,6 +14,12 @@ module.exports = tseslint.config(
     ],
     processor: angular.processInlineTemplates,
     rules: {
+      "@typescript-eslint/explicit-function-return-type": "error",
+      "@typescript-eslint/explicit-member-accessibility": [
+        "error",
+        { accessibility: "no-public" },
+      ],
+      "@angular-eslint/prefer-on-push-component-change-detection": "error",
       "@angular-eslint/directive-selector": [
         "error",
         {
