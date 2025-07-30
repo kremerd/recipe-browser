@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
   FormArray,
   FormControl,
@@ -26,6 +26,7 @@ import { TagInput } from './tag-input/tag-input';
   ],
   templateUrl: './editor.html',
   styleUrl: './editor.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditorComponent {
   private readonly router = inject(Router);

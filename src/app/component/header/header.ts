@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLinkWithHref } from '@angular/router';
@@ -8,5 +8,6 @@ import { RouterLinkWithHref } from '@angular/router';
   imports: [MatButtonModule, MatIconModule, RouterLinkWithHref],
   templateUrl: './header.html',
   styleUrl: './header.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Header {}

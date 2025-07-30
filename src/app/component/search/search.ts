@@ -1,4 +1,9 @@
-import { Component, inject, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  signal,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -21,6 +26,7 @@ import { RecipeRegistry } from '../../service';
   ],
   templateUrl: './search.html',
   styleUrl: './search.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchComponent {
   private readonly recipeRegistry = inject(RecipeRegistry);
