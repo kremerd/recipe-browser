@@ -3,8 +3,9 @@
   <input
     matInput
     type="number"
-    [(ngModel)]="value().amount"
-    (ngModelChange)="updateConsumer()"
+    step="any"
+    [field]="value.amount"
+    (change)="updateConsumer()"
   />
 </mat-form-field>
 <mat-form-field>
@@ -12,8 +13,8 @@
   <input
     matInput
     type="text"
-    [(ngModel)]="value().unit"
-    (ngModelChange)="updateConsumer()"
+    [field]="value.unit"
+    (change)="updateConsumer()"
   />
 </mat-form-field>
 <mat-form-field>
@@ -21,7 +22,7 @@
   <input
     matInput
     type="text"
-    [(ngModel)]="value().name"
-    (ngModelChange)="updateConsumer()"
+    [field]="value.name"
+    (change)="updateConsumer()"
   />
 </mat-form-field>

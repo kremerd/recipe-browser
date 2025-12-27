@@ -7,11 +7,8 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import {
-  ControlValueAccessor,
-  FormsModule,
-  NG_VALUE_ACCESSOR,
-} from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Field, form } from '@angular/forms/signals';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -24,7 +21,7 @@ type OnTouchedCallback = () => void;
 @Component({
   selector: 'rec-ingredient-input',
   imports: [
-    FormsModule,
+    Field,
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
@@ -46,14 +43,16 @@ export class IngredientInputComponent implements ControlValueAccessor {
 
   private onChangeCallback?: OnChangeCallback;
   private onTouchedCallback?: OnTouchedCallback;
-  readonly value = signal<Ingredient>({
-    amount: 0,
-    unit: '',
-    name: '',
-  });
+  readonly value = form<Ingredient>(
+    signal({
+      amount: 0,
+      unit: '',
+      name: '',
+    }),
+  );
 
   writeValue(ingredient: Ingredient): void {
-    this.value.set(ingredient);
+    this.value().value.set(ingredient);
   }
 
   registerOnChange(onChangeCallback: OnChangeCallback): void {
@@ -75,6 +74,6 @@ export class IngredientInputComponent implements ControlValueAccessor {
   }
 
   updateConsumer(): void {
-    this.onChangeCallback?.(this.value());
+    this.onChangeCallback?.(this.value().value());
   }
 }

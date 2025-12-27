@@ -1,11 +1,11 @@
 <h2>{{ title }}</h2>
-<form [formGroup]="recipeForm" (submit)="saveRecipe()">
+<form (submit)="saveRecipe()">
   <mat-form-field>
     <mat-label>Titel</mat-label>
-    <input matInput type="text" formControlName="title" />
+    <input matInput type="text" [field]="recipeForm.title" />
   </mat-form-field>
 
-  <rec-tag-input formControlName="tags"></rec-tag-input>
+  <rec-tag-input [field]="recipeForm.tags"></rec-tag-input>
 
   <mat-form-field>
     <mat-label>Beschreibung</mat-label>
@@ -13,17 +13,20 @@
       matInput
       type="text"
       rows="15"
-      formControlName="description"
+      [field]="recipeForm.description"
     ></textarea>
   </mat-form-field>
 
-  <fieldset formGroupName="ingredients">
+  <fieldset>
     <legend>Zutaten</legend>
-    @for (ingredient of recipeForm.controls.ingredients.controls; track
-    ingredient) {
+    @for (ingredient of recipeForm.ingredients; track ingredient) {
     <div>
-      <rec-ingredient-input [formControlName]="$index"></rec-ingredient-input>
-      <button matButton type="button" (click)="removeIngredient($index)">
+      <rec-ingredient-input [field]="ingredient"></rec-ingredient-input>
+      <button
+        matButton
+        type="button"
+        (click)="removeIngredient(ingredient().value())"
+      >
         <mat-icon fontIcon="delete"></mat-icon>
         Zutat entfernen
       </button>
