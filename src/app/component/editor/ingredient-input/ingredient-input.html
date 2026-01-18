@@ -4,7 +4,7 @@
     matInput
     type="number"
     step="any"
-    [field]="value.amount"
+    [formField]="value.amount"
     (change)="updateConsumer()"
   />
 </mat-form-field>
@@ -13,7 +13,7 @@
   <input
     matInput
     type="text"
-    [field]="value.unit"
+    [formField]="value.unit"
     (change)="updateConsumer()"
   />
 </mat-form-field>
@@ -22,7 +22,7 @@
   <input
     matInput
     type="text"
-    [field]="value.name"
+    [formField]="value.name"
     (change)="updateConsumer()"
   />
 </mat-form-field>

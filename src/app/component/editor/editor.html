@@ -2,10 +2,10 @@
 <form (submit)="saveRecipe()">
   <mat-form-field>
     <mat-label>Titel</mat-label>
-    <input matInput type="text" [field]="recipeForm.title" />
+    <input matInput type="text" [formField]="recipeForm.title" />
   </mat-form-field>
 
-  <rec-tag-input [field]="recipeForm.tags"></rec-tag-input>
+  <rec-tag-input [formField]="recipeForm.tags"></rec-tag-input>
 
   <mat-form-field>
     <mat-label>Beschreibung</mat-label>
@@ -13,7 +13,7 @@
       matInput
       type="text"
       rows="15"
-      [field]="recipeForm.description"
+      [formField]="recipeForm.description"
     ></textarea>
   </mat-form-field>
 
@@ -21,7 +21,7 @@
     <legend>Zutaten</legend>
     @for (ingredient of recipeForm.ingredients; track ingredient) {
     <div>
-      <rec-ingredient-input [field]="ingredient"></rec-ingredient-input>
+      <rec-ingredient-input [formField]="ingredient"></rec-ingredient-input>
       <button
         matButton
         type="button"

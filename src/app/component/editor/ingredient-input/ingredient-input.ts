@@ -8,7 +8,7 @@ import {
   signal,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Field, form } from '@angular/forms/signals';
+import { form, FormField } from '@angular/forms/signals';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -21,7 +21,7 @@ type OnTouchedCallback = () => void;
 @Component({
   selector: 'rec-ingredient-input',
   imports: [
-    Field,
+    FormField,
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,

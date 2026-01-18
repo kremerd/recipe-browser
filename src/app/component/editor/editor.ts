@@ -4,7 +4,7 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { Field, form } from '@angular/forms/signals';
+import { FormField, form } from '@angular/forms/signals';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -17,7 +17,7 @@ import { TagInputComponent } from './tag-input/tag-input';
 @Component({
   selector: 'rec-editor',
   imports: [
-    Field,
+    FormField,
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,

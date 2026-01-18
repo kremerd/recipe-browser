@@ -4,7 +4,7 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { Field, form } from '@angular/forms/signals';
+import { form, FormField } from '@angular/forms/signals';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -16,7 +16,7 @@ import { RecipeRegistry } from '../../service';
 @Component({
   selector: 'rec-search',
   imports: [
-    Field,
+    FormField,
     RouterLinkWithHref,
     MatButtonModule,
     MatCardModule,
