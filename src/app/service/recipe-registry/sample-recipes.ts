@@ -45,7 +45,6 @@ export const sampleRecipes: Recipe[] = [
       },
       {
         amount: 2,
-        unit: '',
         name: 'Eier',
       },
       {
@@ -63,12 +62,10 @@ export const sampleRecipes: Recipe[] = [
     ingredients: [
       {
         amount: 3,
-        unit: '',
         name: 'Knoblauchzehen',
       },
       {
         amount: 3,
-        unit: '',
         name: 'Zwiebeln',
       },
       {
@@ -103,12 +100,10 @@ export const sampleRecipes: Recipe[] = [
       },
       {
         amount: 1,
-        unit: '',
         name: 'Salz und Pfeffer',
       },
       {
         amount: 1,
-        unit: '',
         name: 'Muskat',
       },
       {
@@ -147,12 +142,10 @@ export const sampleRecipes: Recipe[] = [
       },
       {
         amount: 5,
-        unit: '',
         name: 'Eier, getrennt',
       },
       {
         amount: 4,
-        unit: '',
         name: 'unbehandelte Zitronen',
       },
       {

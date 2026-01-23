@@ -1,12 +1,5 @@
 <mat-form-field>
-  <mat-label>Anzahl</mat-label>
-  <input matInput type="number" step="any" [formField]="formValue.amount" />
-</mat-form-field>
-<mat-form-field>
-  <mat-label>Einheit</mat-label>
-  <input matInput type="text" [formField]="formValue.unit" />
-</mat-form-field>
-<mat-form-field>
   <mat-label>Zutat</mat-label>
-  <input matInput type="text" [formField]="formValue.name" />
+  <input matInput type="text" [formField]="formValue" (change)="change()" />
 </mat-form-field>
+{{ value() | json }}
